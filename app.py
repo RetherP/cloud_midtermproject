@@ -5,7 +5,7 @@ app = Flask(__name__)
 def hello_word():
     return "<b>Hello Word</b>" \
     "<p>This is an test webpage for the project</p>" \
-    "<br>" \
+    "<hr>" \
     "<p>This is now running from the docker container.</p>"
 
 
