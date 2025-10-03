@@ -6,12 +6,12 @@ jobs:
         - name: Pull code from github then build a container from it then deploy it
           uses: appleboy/ssh-action@v1
           with: 
-            host:  ${{secrets.HOSTNAME_TEST}}
-            username: ${{secrets.USERNAME}}
-            password: ${{secrets.PW}}
+            host:  ${{ secrets.HOSTNAME_TEST }}
+            username: ${{ secrets.USERNAME }}
+            password: ${{ secrets.PW }}
             script: |
                 if [ $(echo "$PWD") != "/home/student/py-app/cloud_midtermproject" ]; then
-                  cd py-app/cloud_midtermproject
+                  cd ~/py-app/cloud_midtermproject
                 fi
                 git pull
                 docker build -t py-app:latest .
