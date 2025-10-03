@@ -2,7 +2,6 @@ on: push
 jobs: 
   pull-from-repo:
       runs-on: ubuntu-latest
-      environment: prod
       steps:
         - name: Pull code from github then build a container from it then deploy it
           uses: appleboy/ssh-action@v1.0.3
