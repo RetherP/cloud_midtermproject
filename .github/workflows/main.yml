@@ -1,0 +1,22 @@
+on: push
+jobs: 
+  pull-from-repo:
+      runs-on: ubuntu-latest
+      steps:
+        - name: Pull code from github then build a container from it then deploy it
+          uses: appleboy/shh-action@v1.1
+          with: 
+            host:  ${{secrets.HOSTNAME_TEST}}
+            username: ${{secrets.USERNAME}}
+            password: ${{secrets.PW}}
+            script: |
+                if [ $(echo "$PWD") != "/home/student/py-app/cloud_midtermproject" ]; then
+                  cd py-app/cloud_midtermproject
+                fi
+                git pull
+                docker build -t py-app:latest .
+                if [ $(docker ps -a -f name=app) ]; then
+                  docker stop app
+                fi
+                docker run -d -p 80:80 --name app --rm py-app:latest
+              
