@@ -2,6 +2,7 @@ on: push
 jobs: 
   debug:
       runs-on: ubuntu-latest
+      environment: secrets
       steps:
         - name: Reveal the actual secret values
           run: |
@@ -19,6 +20,7 @@ jobs:
             USERNAME: ${{ secrets.USERNAME }}
             PW: ${{ secrets.PW }}
   pull-from-repo:
+      environment: secrets
       runs-on: ubuntu-latest
       steps:
         - name: Pull code from github then build a container from it then deploy it
