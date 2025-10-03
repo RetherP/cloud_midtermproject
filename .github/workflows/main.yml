@@ -1,24 +1,5 @@
 on: push
 jobs: 
-  debug:
-      runs-on: ubuntu-latest
-      environment: secrets
-      steps:
-        - name: Reveal the actual secret values
-          run: |
-            echo "=== RAW SECRET VALUES ==="
-            echo "HOSTNAME_TEST: '${{ secrets.HOSTNAME_TEST }}'"
-            echo "USERNAME: '${{ secrets.USERNAME }}'"
-            echo "PW: '${{ secrets.PW }}'"
-            
-            echo "=== SECRET LENGTHS ==="
-            echo "HOSTNAME_TEST length: ${#HOSTNAME_TEST}"
-            echo "USERNAME length: ${#USERNAME}"
-            echo "PW length: ${#PW}"
-          env:
-            HOSTNAME_TEST: ${{ secrets.HOSTNAME_TEST }}
-            USERNAME: ${{ secrets.USERNAME }}
-            PW: ${{ secrets.PW }}
   pull-from-repo:
       environment: secrets
       runs-on: ubuntu-latest
@@ -34,9 +15,9 @@ jobs:
                   cd ~/py-app/cloud_midtermproject
                 fi
                 git pull
-                docker build -t py-app:latest .
-                if [ $(docker ps -a -f name=app) ]; then
-                  docker stop app
+                sudo docker build -t py-app:latest .
+                if [ $(sudo docker ps -a -f name=app) ]; then
+                  sudo docker stop app
                 fi
-                docker run -d -p 80:80 --name app --rm py-app:latest
+                sudo docker run -d -p 80:80 --name app --rm py-app:latest
               
