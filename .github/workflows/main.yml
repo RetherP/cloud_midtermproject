@@ -1,5 +1,23 @@
 on: push
 jobs: 
+  debug:
+      runs-on: ubuntu-latest
+      steps:
+        - name: Reveal the actual secret values
+          run: |
+            echo "=== RAW SECRET VALUES ==="
+            echo "HOSTNAME_TEST: '${{ secrets.HOSTNAME_TEST }}'"
+            echo "USERNAME: '${{ secrets.USERNAME }}'"
+            echo "PW: '${{ secrets.PW }}'"
+            
+            echo "=== SECRET LENGTHS ==="
+            echo "HOSTNAME_TEST length: ${#HOSTNAME_TEST}"
+            echo "USERNAME length: ${#USERNAME}"
+            echo "PW length: ${#PW}"
+          env:
+            HOSTNAME_TEST: ${{ secrets.HOSTNAME_TEST }}
+            USERNAME: ${{ secrets.USERNAME }}
+            PW: ${{ secrets.PW }}
   pull-from-repo:
       runs-on: ubuntu-latest
       steps:
