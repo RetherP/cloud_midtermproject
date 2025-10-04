@@ -1,7 +1,7 @@
 on: push
 jobs: 
   pull-from-repo:
-      environment: secrets
+      environment: prod
       runs-on: ubuntu-latest
       steps:
         - name: Pull code from github then build a container from it then deploy it
