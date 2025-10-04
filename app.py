@@ -3,10 +3,18 @@ app = Flask(__name__)
 
 @app.route('/')
 def hello_word():
-    return "<b>Hello Word</b>" \
-    "<p>This is an test webpage for the project</p>" \
-    "<hr>" \
-    "<p>This is now running from the docker container. :) </p>"
+    return """
+        <center>
+            <h1> Hello Word </h1>
+            <p>This is a demo webpage for the midterm project</p>
+            <hr>
+            <p>This code is running from a Docker Container on Azure VM deployed via Github Actions </p>
+            <h2>The Deployment Status</h2>
+            <a href="https://github.com/RetherP/cloud_midtermproject/actions/workflows/main.yml">
+                <img src="https://github.com/RetherP/cloud_midtermproject/actions/workflows/main.yml/badge.svg">            
+            </a>
+        </center>
+    """
 
 
 if __name__ == '__main__':
