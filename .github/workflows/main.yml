@@ -7,7 +7,7 @@ jobs:
         - name: Pull code from github then build a container from it then deploy it
           uses: appleboy/ssh-action@v1.0.3
           with: 
-            host:  ${{ secrets.HOSTNAME_TEST }}
+            host:  ${{ secrets.HOSTNAME }}
             username: ${{ secrets.USERNAME }}
             password: ${{ secrets.PW }}
             script: |
