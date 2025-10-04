@@ -24,17 +24,18 @@ def hello_word():
                 <div class="row">
                     <div class="col">    
                         <p>This code is running from a Docker Container on Azure VM deployed via Github Actions </p>
-                </div>
+                	</div>
                 </div>
                 <div class="row">
                     <div class="col">
-                        <h2>The Deployment Status</h2>
+                        <h4>The Deployment Status:</h4>
+                    </div>
+                    <div class="col-8">
                         <a href="https://github.com/RetherP/cloud_midtermproject/actions/workflows/main.yml">
                             <img src="https://github.com/RetherP/cloud_midtermproject/actions/workflows/main.yml/badge.svg">            
                         </a>
+                	</div>
                 </div>
-                </div>
-                
         </body>
     """
 
