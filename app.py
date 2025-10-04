@@ -6,7 +6,7 @@ def hello_word():
     return """
         <head>
             <title>Cloud Project Website</title>
-            <link rel="icon" href="/img/cloud_icon.png">
+            <link rel="icon" href="{{ url_for('static', filename='cloud_icon.png') }}">
             <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
         </head>
         <body>
@@ -39,6 +39,9 @@ def hello_word():
         </body>
     """
 
+@app.route("/cloud_icon.png")
+def cloud_icon():
+    return Flask.render_template("cloud_icon.png")
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=80, debug=False)
