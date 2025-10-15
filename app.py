@@ -12,7 +12,7 @@ def hello_word():
             <div class="container">
                 <div class="row">
                     <div class="col">
-                        <h1> Hello Word </h1>
+                        <h1> Welcome </h1>
                     </div>
                 </div>
                 <div class="row">
