@@ -26,6 +26,11 @@ def hello_word():
                 	</div>
                 </div>
                 <div class="row">
+                    <div class="col">    
+                        <p>Edited webpage.</p>
+                	</div>
+                </div>
+                <div class="row">
                     <div class="col">
                         <h4>The Deployment Status:</h4>
                     </div>
